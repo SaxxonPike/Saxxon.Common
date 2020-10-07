@@ -1,0 +1,7 @@
+# Saxxon.Common
+
+Common functionality I like to include in my projects.
+
+### TestInfrastructure
+
+Base test fixtures. These will assume AutoFixture, Moq and NUnit are installed.

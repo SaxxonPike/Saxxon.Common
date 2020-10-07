@@ -9,6 +9,7 @@ using Moq;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 
+// ReSharper disable CheckNamespace
 // ReSharper disable UnusedMember.Global
 
 namespace Saxxon.TestInfrastructure
