@@ -19,7 +19,7 @@ namespace Saxxon.TestInfrastructure
     public abstract class TestBase
     {
         private static readonly ConcurrentDictionary<string, Fixture> Fixtures =
-            new ConcurrentDictionary<string, Fixture>();
+            new();
 
         private static Randomizer Random
         {
@@ -42,6 +42,14 @@ namespace Saxxon.TestInfrastructure
 
         [DebuggerStepThrough]
         protected static Mock<T> Mock<T>() where T : class => Fixture.Freeze<Mock<T>>();
+
+        [DebuggerStepThrough]
+        protected static Mock<T> Mock<T>(Action<Mock<T>> setup) where T : class
+        {
+            var mock = Fixture.Freeze<Mock<T>>();
+            setup(mock);
+            return mock;
+        }
 
         [DebuggerStepThrough]
         protected static T Create<T>() => Fixture.Create<T>();
